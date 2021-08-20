@@ -1,0 +1,52 @@
+1.一般而言，兔子在出生两个月后，就有繁殖能力，一对兔子每个月能生出一对小兔子来。如果所有兔都不死，那么一年以后可以繁殖多少对兔子？
+通过递归和循环来解决这个问题
+   提示:
+　　我们不妨拿新出生的一对小兔子分析一下： 
+　　第一个月小兔子没有繁殖能力，所以还是一对; 
+　　两个月后，生下一对小兔民数共有两对; 
+　　三个月以后，老兔子又生下一对，因为小兔子还没有繁殖能力，所以一共是三对; 
+
+2.使用File,获得一个文件是否存在,如果不存在,则创建.如果存在,则显示这个文件的大小,路径,最后修改时间.
+
+3.创建一个多层目录 "f:/java/java1/java2"
+
+4.File类,自学createTempFile方法的使用,在一个目录中，创建500个临时文件；
+
+//二分法查找  [1,3,4,5,7,8,9,23,45]
+//汉诺塔；
+
+5.删除一个给定的目录,这上目录不为空目录,使用递归来实现
+
+6.写一个方法,可以复制一个文件
+
+7.写一个方法,可以复制一个目录,(此目录不为空)
+
+8.写一个方法,可以将一个非空目录中的所有文件的层次显示出来；
+
+9.io流的分类有哪些?(简答)
+
+10.使用FileOutputStream,向"f:/output" 输出一句话"hello world",并能过FileInputStream流读出这段文字
+
+11.使用FileWriter,向"f:/output" 输出一句话"hello world",并能过FileReader流读出这段文字
+
+13.通过Scanner读两句话,并写到一个文件中.通过PrintWriter来实现
+
+14.使用BufferedWriter,向"f:/output" 输出一句话"hello world",并能过BufferedReader,流读出这段文字
+
+15.使用DataOutputStream向文件中输出int,double,String类型的数据
+
+16.定义一个学生类 Student,有属性,Date birth,String name,int height,String degree,定义两个对象,将此对象写到文件中,并在另外一个工程中,将些内容读出.
+
+17.将Student对象转换成byte[],并将些byte数据写到文件中,再写一个程序读出此byte数组,将此byte数组转换成Student.
+
+18,使用Properties类对文件进行读写操作.
+
+
+Student s=new Student();
+	s.name="";
+	s.birth=Date
+	s.sex="";
+
+
+
+
