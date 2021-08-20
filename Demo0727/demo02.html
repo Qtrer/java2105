@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../library/jquery-3.6.0.js"></script>
+    <script>
+        $(function (){
+            $("#btn_show").on("click",function (){
+                // $("#div_id").show()
+                $("#div_id").slideDown()
+                // $("#div_id").fadeIn()
+            })
+            $("#btn_hide").on("click",function (){
+                // $("#div_id").hide()
+                $("#div_id").slideUp()
+                // $("#div_id").fadeOut()
+            })
+            $("#btn_toggle").on("click",function (){
+                $("#div_id").fadeToggle()
+            })
+            $("button").hover(function (){
+                $(this).css("background-color","aqua")
+            }, function (){
+                $(this).css("background-color","white")
+            })
+            $(":checkbox").click(function (){
+                var arr = []
+                $(":checked").each(function (){
+                    arr.push($(this).val())
+                })
+                $("#inp").val(arr.join(";"))
+            })
+            $("#inp").css("width","300px")
+        })
+    </script>
+</head>
+<body>
+<button id="btn_show">show</button>&nbsp;<button id="btn_hide">hide</button>&nbsp;<button id="btn_toggle">toggle</button><br/>
+<input type="text" id="inp"/><hr/>
+<div id="div_id" style="width: 290px; padding: 10px;background:aqua;">
+    <input type="checkbox" value="1@qq.com"/>1
+    <input type="checkbox" value="2@163.com"/>2
+    <input type="checkbox" value="3@sina.com"/>3
+</div>
+</body>
+</html>

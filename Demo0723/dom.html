@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function select(){
+            open("table.html","table", "width=400,height=300")
+        }
+    </script>
+</head>
+<body>
+<div id="list">user_list:</div><hr/>
+name:<input id="username" type="text"/><br/>
+password:<input id="pwd" type="password"/><br/>
+hobby:<input name="hobby" type="checkbox" value="game">game
+<input name="hobby" type="checkbox" value="code">code
+<input name="hobby" type="checkbox" value="stick">stick<br/>
+vocation:<select id="vocation">
+    <option>graduate</option>
+    <option>coder</option>
+    <option>dunk</option>
+</select>
+<button id="btn">submit</button>
+<hr/>
+id:<input type="text" id="id_id">
+name:<input type="text" id="name_id">
+<button id="btn_1" onclick="select()">select</button>
+</body>
+</html>
+<script type="text/javascript">
+    var btn = document.getElementById("btn")
+    btn.onclick = function (){
+        var username = document.getElementById("username").value
+        var pwd = document.getElementById("pwd").value
+        var hobby_arr = document.getElementsByName("hobby")
+        var hobby = ""
+        for (var i=0;i<hobby_arr.length;i++)
+            if (hobby_arr[i].checked === true)
+                hobby=hobby+hobby_arr[i].value+", "
+        var vocation = document.getElementById("vocation").value
+        var str = "name: "+username+" pwd: "+pwd+" hobby: "+hobby+" vocation: "+vocation
+        var list = document.getElementById("list")
+        list.innerText += "\n"+str
+    }
+</script>

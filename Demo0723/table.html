@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function get_data(obj){
+            var tr = obj.parentNode.parentNode
+            var td = tr.getElementsByTagName("td")
+            opener.document.getElementById("id_id").value = td[1].innerText
+            opener.document.getElementById("name_id").value = td[2].innerText
+        }
+        function window_close(){
+            close()
+        }
+    </script>
+</head>
+<body>
+<table border="1" style="width: 300px;height: 200px;">
+    <tr>
+        <td>action</td>
+        <td>id</td>
+        <td>name</td>
+    </tr>
+    <tr>
+        <td><input type="button" value="select" onclick="get_data(this)"/></td>
+        <td>1</td>
+        <td>qtrer</td>
+    </tr>
+    <tr>
+        <td><input type="button" value="select" onclick="get_data(this)"/></td>
+        <td>2</td>
+        <td>laner</td>
+    </tr>
+    <tr>
+        <td><input type="button" value="select" onclick="get_data(this)"/></td>
+        <td>3</td>
+        <td>jo_er</td>
+    </tr>
+</table>
+<button id="btn" onclick="window_close()">close</button>
+</body>
+</html>

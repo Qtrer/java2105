@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        // window.onload = function (){
+        //     var ul = document.getElementById("ul_id")
+        //     var li3 = ul.lastElementChild;
+        //     var li2 = li3.previousElementSibling;
+        //     alert(li2.innerText)
+        // }
+        function cut(){
+            var ul = document.getElementById("ul_id")
+            var div1 = ul.parentNode
+            if(div1.nextElementSibling.nodeName === div1.nodeName) {
+                var div2 = div1.nextElementSibling
+                div2.appendChild(ul)
+            }else {
+                var div2 = div1.previousElementSibling
+                div2.appendChild(ul)
+            }
+
+        }
+        function add(){
+            var txt = document.getElementById("txt")
+            var new_li = document.createElement("li")
+            var new_txt = document.createTextNode(txt.value)
+            new_li.appendChild(new_txt)
+            var ul = document.getElementById("ul_id")
+            ul.appendChild(new_li)
+        }
+    </script>
+</head>
+<body>
+<div style="background:aqua;width: 300px;height: 300px;">
+    <ul id="ul_id">
+        <li id="li_id">qtrer</li>
+        <li>laner</li>
+        <li>jo_er</li>
+    </ul>
+</div>
+<div style="background:lightcoral;width: 300px;height: 300px">
+
+</div>
+<button onclick="cut()">cut</button>
+<button onclick="add()">add</button><input type="text" id="txt">
+<hr/>
+<span id="span_id">span text</span>
+<button onclick="show()">show</button>
+</body>
+</html>
+<script type="text/javascript">
+    function show(){
+        var span = document.getElementById("span_id")
+        document.write(span.nodeType)
+        document.write("<br/>")
+        document.write(span.nodeName)
+        document.write("<br/>")
+        document.write(span.nodeValue)
+        document.write("<hr/>")
+        var span1 = span.getAttributeNode("id")
+        document.write(span1.nodeType)
+        document.write("<br/>")
+        document.write(span1.nodeName)
+        document.write("<br/>")
+        document.write(span1.nodeValue)
+        document.write("<hr/>")
+        var span2 = span.firstChild
+        document.write(span2.nodeType)
+        document.write("<br/>")
+        document.write(span2.nodeName)
+        document.write("<br/>")
+        document.write(span2.nodeValue)
+        document.write("<hr/>")
+    }
+</script>

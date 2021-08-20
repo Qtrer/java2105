@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div_id{
+            background:aqua;
+            width: 460px;
+            padding: 10px 20px;
+        }
+    </style>
+    <script src="js/jquery-3.6.0.js"></script>
+    <script>
+        $(function (){
+            // $("#inp").val("qtrer")
+            // $(".sel").each(function (){
+            //     this.checked = true
+            // })
+            // alert($(".sel[name=sec]").val())
+            $("#btn_add").click(function (){
+                var div = $("#div_id")
+                var new_div = $("<div><spane>name: </span></div>")
+                var new_text = $("#inp").val()
+                var new_sel = $("<span>sel: </span>")
+                $(".sel").each(function (){
+                    if (this.checked)
+                        new_sel.append($(this).val()).append(", ")
+                })
+                var btn_del = $("<button>del</button>")
+                btn_del.click(function (){
+                    $(this).parent().remove()
+                })
+                new_div.append(new_text).append(" ").append(new_sel).append(btn_del)
+                div.append(new_div)
+            })
+        })
+    </script>
+</head>
+<body>
+name:<input id="inp" type="text"/><br/>
+<input class="sel" type="checkbox" value="sel1"/>sel1
+<input class="sel" type="checkbox" name="sec" value="sel2"/>sel2
+<input class="sel" type="checkbox" value="sel3"/>sel3<br/>
+<button id="btn_add">Add</button><hr/>
+<div id="div_id"></div>
+</body>
+</html>

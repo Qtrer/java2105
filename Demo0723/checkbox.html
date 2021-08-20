@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var arr = document.getElementsByName("check")
+        function btn_all(){
+            for (var i=0;i<arr.length;i++){
+                arr[i].checked = true
+            }
+        }
+        function btn_none(){
+            for (var i=0;i<arr.length;i++){
+                arr[i].checked = false
+            }
+        }
+        function check_other(){
+            for (var i=1;i<arr.length;i++){
+                if (arr[i].checked === false) {
+                    arr[0].checked = false
+                    break;
+                }else arr[0].checked = true
+            }
+        }
+        function btn_reverse(){
+            for (var i=1;i<arr.length;i++){
+                arr[i].checked = arr[i].checked !== true;
+            }
+            check_other()
+        }
+        function box(obj){
+            if (obj.checked === false){
+                arr[0].checked = false
+            }else {
+                check_other()
+            }
+        }
+        function check_all(obj){
+            if (obj.checked === false){
+                btn_none()
+            }
+            else {
+                btn_all()
+            }
+        }
+    </script>
+</head>
+<body>
+<label>
+    <input type="checkbox" name="check" onclick="check_all(this)"/>
+    All/None
+</label><br/>
+<label>
+    <input type="checkbox" name="check" onclick="box(this)"/>
+    select_1
+</label>
+<label>
+    <input type="checkbox" name="check" onclick="box(this)"/>
+    select_2
+</label>
+<label>
+    <input type="checkbox" name="check" onclick="box(this)"/>
+    select_3
+</label><br/>
+<button id="btn_all" onclick="btn_all()">All</button>
+<button id="btn_none" onclick="btn_none()">None</button>
+<button id="btn_reverse" onclick="btn_reverse()">Reverse</button>
+</body>
+</html>

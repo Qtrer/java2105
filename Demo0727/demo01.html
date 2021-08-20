@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../library/jquery-3.6.0.js"></script>
+    <script>
+        const json = [
+            {
+                "name": "pro1", "city": [
+                    {"name": "pro1_city1", "area": ["pro1_city1_area1", "pro1_city1_area2", "pro1_city1_area3"]},
+                    {"name": "pro1_city2", "area": ["pro1_city2_area1", "pro1_city2_area2", "pro1_city2_area3"]},
+                    {"name": "pro1_city3", "area": ["pro1_city3_area1", "pro1_city3_area2", "pro1_city3_area3"]},
+                ]
+            },
+            {
+                "name": "pro2", "city": [
+                    {"name": "pro2_city1", "area": ["pro2_city1_area1", "pro2_city1_area2", "pro2_city1_area3"]},
+                    {"name": "pro2_city2", "area": ["pro2_city2_area1", "pro2_city2_area2", "pro2_city2_area3"]},
+                    {"name": "pro2_city3", "area": ["pro2_city3_area1", "pro2_city3_area2", "pro2_city3_area3"]},
+                ]
+            },
+            {
+                "name": "pro3", "city": [
+                    {"name": "pro3_city1", "area": ["pro3_city1_area1", "pro3_city1_area2", "pro3_city1_area3"]},
+                    {"name": "pro3_city2", "area": ["pro3_city2_area1", "pro3_city2_area2", "pro3_city2_area3"]},
+                    {"name": "pro3_city3", "area": ["pro3_city3_area1", "pro3_city3_area2", "pro3_city3_area3"]},
+                ]
+            }
+        ];
+        $(function () {
+            var province = $("#province")
+            var city = $("#city")
+            var area = $("#area")
+            province.css("width","50px")
+            city.css("width","100px")
+            area.css("width","150px")
+            for (var i = 0; i < json.length; i++) {
+                province.append($("<option>").val(i).html(json[i].name))
+            }
+            province.change(function () {
+                var index = province.val()
+                city.empty()
+                for (var i = 0; i < json[index].city.length; i++) {
+                    city.append($("<option>").val(i).html(json[index].city[i].name))
+                }
+            })
+            city.change(function () {
+                var pro_index = province.val()
+                var index = city.val()
+                area.empty()
+                for (var i = 0; i < json[pro_index].city[index].area.length; i++) {
+                    area.append($("<option>").val(i).html(json[pro_index].city[index].area[i]))
+                }
+            })
+            province.change()
+            city.change()
+        })
+    </script>
+</head>
+<body>
+<label for="province">province:</label><select id="province"></select>
+<label for="city">city:</label><select id="city"></select>
+<label for="area">area:</label><select id="area"></select>
+</body>
+</html>

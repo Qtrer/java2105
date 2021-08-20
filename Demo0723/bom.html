@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script type="text/javascript">
+      document.write(navigator.appName)
+      document.write("<br/>")
+      document.write(navigator.appVersion)
+      document.write("<br/>")
+      document.write(navigator.appCodeName)
+      document.write("<br/>")
+      document.write(screen.width)
+      document.write("<br/>")
+      document.write(screen.height)
+      function baidu(){
+          var bool = window.prompt("input yes to junp")
+          if (bool === "yes") location.href = "https://www.baidu.com"
+      }
+      var win;
+      function new_baidu(){
+          var bool = window.confirm("confirm open?")
+          if (bool) win = open("https://www.baidu.com","","width: 500px, height:300px")
+      }
+      function close_baidu(){
+          win.close()
+      }
+      function last_page(){
+          history.back()
+      }
+      function forward_page(){
+          history.forward()
+      }
+      var interval;
+      var timeout;
+      function time(){
+          var date = new Date()
+          var time = document.getElementById("time")
+          time.innerText = date.toTimeString()
+      }
+      function start(){
+          interval = setInterval("time()", 1000)
+      }
+      function stop(){
+          clearInterval(interval)
+      }
+      function warning(){
+          alert("warning")
+      }
+      function later_start(){
+          timeout = setTimeout("warning()", 5000)
+      }
+      function later_stop(){
+          clearTimeout(timeout)
+      }
+
+  </script>
+</head>
+<body>
+<button onclick="baidu()">baidu</button><button onclick="new_baidu()">new_baidu</button><button onclick="close_baidu()">close_baidu</button><br/>
+<button onclick="last_page()">page_up</button><button onclick="forward_page()">page_down</button><hr/>
+当前时间：<span id="time"></span><br/>
+<button onclick="start()">start</button><button onclick="stop()">stop</button><br/>
+<button onclick="later_start()">later_start</button><button onclick="later_stop()">later_stop</button>
+</body>
+</html>

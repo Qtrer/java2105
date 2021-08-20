@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        select{
+            width: 100px;
+            height: 200px;
+        }
+        div{
+            float: left;
+        }
+        button{
+            width: 100px;
+            margin: 6px 10px;
+        }
+    </style>
+    <script type="text/javascript">
+        function single_to(){
+            var sec = document.getElementById("select_1")
+            var optIndex = sec.selectedIndex
+            var opt = sec.options[optIndex]
+            var sec2 = document.getElementById("select_2")
+            sec2.appendChild(opt)
+        }
+        function single_back(){
+            var sec = document.getElementById("select_2")
+            var optIndex = sec.selectedIndex
+            var opt = sec.options[optIndex]
+            var sec2 = document.getElementById("select_1")
+            sec2.appendChild(opt)
+        }
+        function multiple_to(){
+            var sec = document.getElementById("select_1")
+            var sec2 = document.getElementById("select_2")
+            var opts = sec.options
+            for (var i=0;i<opts.length;i++){
+                if (opts[i].selected === true){
+                    sec2.appendChild(opts[i])
+                    i--
+                }
+            }
+        }
+        function multiple_back(){
+            var sec = document.getElementById("select_2")
+            var sec2 = document.getElementById("select_1")
+            var opts = sec.options
+            var indexs = []
+            var count = 0
+            for (var i=0;i<opts.length;i++){
+                if (opts[i].selected === true){
+                    sec2.appendChild(opts[i])
+                    i--
+                }
+            }
+        }
+        function all_to(){
+            var sec = document.getElementById("select_1")
+            var opts = sec.options
+            var sec2 = document.getElementById("select_2")
+            while (opts.length !== 0){
+                sec2.appendChild(opts[0])
+            }
+        }
+        function all_back(){
+            var sec = document.getElementById("select_2")
+            var opts = sec.options
+            var sec2 = document.getElementById("select_1")
+            while (opts.length !== 0){
+                sec2.appendChild(opts[0])
+            }
+        }
+    </script>
+</head>
+<body>
+<div>
+    <label>
+        <select multiple="multiple" id="select_1">
+            <option value="1">option_1</option>
+            <option value="2">option_2</option>
+            <option value="3">option_3</option>
+            <option value="4">option_4</option>
+            <option value="5">option_5</option>
+        </select>
+    </label>
+</div>
+<div>
+    <button onclick="single_to()">single--></button><br/>
+    <button onclick="multiple_to()">multiple--></button><br/>
+    <button onclick="all_to()">all--></button><br/>
+    <button onclick="single_back()"><--single</button><br/>
+    <button onclick="multiple_back()"><--multiple</button><br/>
+    <button onclick="all_back()"><--all</button><br/>
+</div>
+<div>
+    <label>
+        <select multiple="multiple" id="select_2">
+
+        </select>
+    </label>
+</div>
+</body>
+</html>
